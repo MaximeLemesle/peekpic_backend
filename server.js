@@ -12,6 +12,14 @@ app.get("/", (req, res) => {
   res.status(200).render('views');
 });
 
+// Routes user
+import user from './routes/user.routes.js';
+app.use('/user', user);
+
+// Routes album
+import album from './routes/album.routes.js';
+app.use('/album', album);
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
