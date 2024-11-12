@@ -2,7 +2,7 @@
 import { supabase } from "../config/supabase.js";
 
 async function getAllAlbum() {
-  const { data, error } = await supabase.from("pp_albums").select("*");
+  const { data, error } = await supabase.from('pp_albums').select(`*, pp_pages(*)`);
 
   if (error) {
     console.error(`Erreur lors de la récupération des albums :`, error.message);
@@ -18,8 +18,8 @@ async function getAllAlbum() {
 
 async function getAlbum(id) {
   const { data, error } = await supabase
-    .from("pp_albums")
-    .select("*")
+    .from('pp_albums')
+    .select(`*, pp_pages(*)`)
     .eq("id_album", id);
 
   if (error) {

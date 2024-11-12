@@ -2,7 +2,9 @@
 import { supabase } from "../config/supabase.js";
 
 async function getAllUser() {
-  const { data, error } = await supabase.from("pp_users").select("*");
+  const { data, error } = await supabase.from('pp_users').select('*');
+
+  console.log(data);
 
   if (error) {
     console.error(`Erreur lors de la récupération des utilisateurs :`, error.message);
@@ -18,8 +20,8 @@ async function getAllUser() {
 
 async function getUser(id) {
   const { data, error } = await supabase
-    .from("pp_users")
-    .select("*")
+    .from('pp_users')
+    .select(`*`)
     .eq("id_user", id);
 
   if (error) {
