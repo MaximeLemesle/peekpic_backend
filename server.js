@@ -20,6 +20,10 @@ app.use('/user', user);
 import album from './routes/album.routes.js';
 app.use('/album', album);
 
+// Routes page
+import page from './routes/page.routes.js';
+app.use('/page', page);
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
