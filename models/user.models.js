@@ -2,7 +2,7 @@
 import { supabase } from "../config/supabase.js";
 
 async function getAllUser() {
-  const { data, error } = await supabase.from('pp_users').select('*');
+  const { data, error } = await supabase.from('pp_users').select(`*, pp_comments(*)`);
 
   console.log(data);
 
@@ -21,7 +21,7 @@ async function getAllUser() {
 async function getUser(id) {
   const { data, error } = await supabase
     .from('pp_users')
-    .select(`*`)
+    .select(`*, pp_comments(*)`)
     .eq("id_user", id);
 
   if (error) {
