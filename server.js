@@ -28,6 +28,10 @@ app.use('/page', page);
 import comment from './routes/comment.routes.js';
 app.use('/comment', comment);
 
+// Routes photo
+import photo from './routes/photo.routes.js';
+app.use('/photo', photo);
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
